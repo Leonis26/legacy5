@@ -767,7 +767,7 @@ MonoBehaviour:
   m_AutoTurnPitch: 0.5
   m_AutoRollLevel: 0.1
   m_AutoPitchLevel: 0.1
-  m_MaxEnginePower: 50
+  m_MaxEnginePower: 20
   m_ThrottleChangeSpeed: 0.3
   m_DragIncreaseFactor: 0.001
   speed: 0
@@ -1291,7 +1291,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.047557615, y: -0.0000000021483644, z: 1.02286804e-10, w: 0.9988686}
+  m_LocalRotation: {x: 0.047557615, y: 0.0000000021483642, z: -1.0228682e-10, w: 0.9988686}
   m_LocalPosition: {x: 91.59571, y: 182.6, z: -1099.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1673,7 +1673,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300029421}
-  m_LocalRotation: {x: 0.047557615, y: -0.0000000021483644, z: 1.02286804e-10, w: 0.9988686}
+  m_LocalRotation: {x: 0.047557615, y: 0.0000000021483642, z: -1.0228682e-10, w: 0.9988686}
   m_LocalPosition: {x: 91.59571, y: 182.6, z: -1099.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

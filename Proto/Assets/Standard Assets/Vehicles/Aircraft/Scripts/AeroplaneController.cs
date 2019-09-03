@@ -88,7 +88,7 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
 
             CalculateRollAndPitchAngles();
 
-            AutoLevel();
+            //AutoLevel();
 
             CalculateForwardSpeed();
 
@@ -137,7 +137,7 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
         }
 
 
-        private void AutoLevel()
+        /*private void AutoLevel()
         {
             // The banked turn amount (between -1 and 1) is the sine of the roll angle.
             // this is an amount applied to elevator input if the user is only using the banking controls,
@@ -154,14 +154,14 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
                 PitchInput = -PitchAngle*m_AutoPitchLevel;
                 PitchInput -= Mathf.Abs(m_BankedTurnAmount*m_BankedTurnAmount*m_AutoTurnPitch);
             }
-        }
+        }*/
 
 
         private void CalculateForwardSpeed()
         {
             // Forward speed is the speed in the planes's forward direction (not the same as its velocity, eg if falling in a stall)
             var localVelocity = transform.InverseTransformDirection(m_Rigidbody.velocity);
-            ForwardSpeed = Mathf.Max(0, localVelocity.z);
+            ForwardSpeed = Mathf.Max(0, localVelocity.y);
         }
 
 
@@ -201,7 +201,7 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
             if (m_Rigidbody.velocity.magnitude > 0)
             {
                 // compare the direction we're pointing with the direction we're moving:
-                m_AeroFactor = Vector3.Dot(transform.forward, m_Rigidbody.velocity.normalized);
+                m_AeroFactor = Vector3.Dot(transform.up, m_Rigidbody.velocity.normalized);
                 // multipled by itself results in a desirable rolloff curve of the effect
                 m_AeroFactor *= m_AeroFactor;
                 // Finally we calculate a new velocity by bending the current velocity direction towards
@@ -225,7 +225,7 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
             // we accumulate forces into this variable:
             var forces = Vector3.zero;
             // Add the engine power in the forward direction
-            forces += EnginePower*transform.forward;
+            forces += EnginePower*transform.up;
             // The direction that the lift force is applied is at right angles to the plane's velocity (usually, this is 'up'!)
             var liftDirection = Vector3.Cross(m_Rigidbody.velocity, transform.right).normalized;
             // The amount of lift drops off as the plane increases speed - in reality this occurs as the pilot retracts the flaps
